@@ -13,4 +13,4 @@ const Welcome = ({person}: {person: string}) => (
 
 const stories = storiesOf('Examples', module);
 stories.addDecorator(withKnobs);
-stories.add('Welcome', () => <Welcome person={text('person', 'cher développeur')} />);  
+stories.add('Welcome', () => <Welcome person={text('person', ' and good luck ;-)')} />);  

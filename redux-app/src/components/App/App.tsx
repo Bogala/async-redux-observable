@@ -6,12 +6,14 @@ class App extends React.Component {
   render() {
     return (
       <MuiThemeProvider>
-        <AppBar
-          title="Redux project"
-          iconElementLeft={<div></div>}
-        />
-        <div className="center">
-          <CircularProgress size={180} thickness={5} />
+        <div>
+          <AppBar
+            title="Redux project"
+            iconElementLeft={<div />}
+          />
+          <div className="center">
+            <CircularProgress size={180} thickness={5} />
+          </div>
         </div>
       </MuiThemeProvider>
     );
