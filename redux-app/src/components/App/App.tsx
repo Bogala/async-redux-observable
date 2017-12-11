@@ -1,9 +1,20 @@
 import * as React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { AppBar, CircularProgress } from 'material-ui';
+import { AppBar, TextField, FlatButton } from 'material-ui';
 
-class App extends React.Component {
+export interface IAppProps {
+  user?: any;
+  searchField?: string;
+  onSearch?: (e: any) => void;
+}
+
+class App extends React.Component<IAppProps> {
+  constructor(props: IAppProps) {
+    super(props);
+  }
+
   render() {
+    let {searchField, onSearch} = this.props;
     return (
       <MuiThemeProvider>
         <div>
@@ -12,7 +23,11 @@ class App extends React.Component {
             iconElementLeft={<div />}
           />
           <div className="center">
-            <CircularProgress size={180} thickness={5} />
+            <TextField
+              floatingLabelText="User login"
+              value={searchField}
+            /><br />
+            <FlatButton label="Search" fullWidth={true} onClick={onSearch}/>
           </div>
         </div>
       </MuiThemeProvider>

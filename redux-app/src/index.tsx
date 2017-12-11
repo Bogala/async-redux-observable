@@ -1,4 +1,5 @@
 import 'core-js';
+import 'rxjs';
 
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
