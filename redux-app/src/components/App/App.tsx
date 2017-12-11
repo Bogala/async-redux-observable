@@ -1,38 +1,48 @@
 import * as React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { AppBar, TextField, FlatButton } from 'material-ui';
+import { AppBar, TextField, FlatButton, Card, CardHeader } from 'material-ui';
 
 export interface IAppProps {
   user?: any;
-  searchField?: string;
-  onSearch?: (e: any) => void;
+  onSearch?: (e: string) => void;
+  onChange?: (e: any) => void;
 }
 
-class App extends React.Component<IAppProps> {
-  constructor(props: IAppProps) {
-    super(props);
-  }
+const App = ({ onSearch, onChange, user }: IAppProps) => {
 
-  render() {
-    let {searchField, onSearch} = this.props;
-    return (
-      <MuiThemeProvider>
-        <div>
-          <AppBar
-            title="Redux project"
-            iconElementLeft={<div />}
-          />
-          <div className="center">
-            <TextField
-              floatingLabelText="User login"
-              value={searchField}
-            /><br />
-            <FlatButton label="Search" fullWidth={true} onClick={onSearch}/>
-          </div>
+  const onClick = () => {
+    if (onSearch && user) {
+      onSearch(user.login);
+    }
+  };
+
+  return (
+    <MuiThemeProvider>
+      <div>
+        <AppBar
+          title="Redux project"
+          iconElementLeft={<div />}
+        />
+        <div className="center">
+          <TextField
+            floatingLabelText="User login"
+            onChange={onChange}
+          /><br />
+          <FlatButton label="Search" fullWidth={true} onClick={onClick} /><br />
+          <br />
+          {(user.name) ?
+            <Card>
+              <CardHeader
+                title={user.name}
+                subtitle={user.bio}
+                avatar={user.avatar_url}
+              />
+            </Card> : ''
+          }
         </div>
-      </MuiThemeProvider>
-    );
-  }
-}
+      </div>
+    </MuiThemeProvider>
+  );
+};
 
 export default App;
