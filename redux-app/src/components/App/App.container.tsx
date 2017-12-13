@@ -2,7 +2,7 @@ import { IAppProps } from './App';
 import { FETCH_USER } from '../../store/user/user.actions';
 import { connect } from 'react-redux';
 import App from './App';
-import { fetchUserFulfilled } from '../../store/user/user.epics';
+import { fetchUserFulfilled, fetchUserCancel } from '../../store/user/user.epics';
 
 const mapStateToProps = (state: any, props: IAppProps) => ({
     user: state.user
@@ -13,6 +13,7 @@ const mapDispatchToProps = (dispatch: any) => ({
         dispatch({ type: FETCH_USER, payload: e });
     },
     onChange: (e: any) => {
+        dispatch(fetchUserCancel());
         dispatch(fetchUserFulfilled({ login: e.target.value }));
     }
 });
