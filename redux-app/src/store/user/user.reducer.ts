@@ -4,9 +4,7 @@ export const users = (state = {}, action) => {
     switch (action.type) {
       case FETCH_USER_FULFILLED:
         return {
-          ...action.payload,
-          // `login` is the username
-          // [action.payload.login]: action.payload
+          ...action.payload
         };
       default:
         return state;
