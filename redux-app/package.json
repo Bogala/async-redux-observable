@@ -11,7 +11,8 @@
     "recompose": "^0.26.0",
     "redux": "^3.7.2",
     "redux-observable": "^0.17.0",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "rxjs": "^5.5.4"
   },
   "scripts": {
     "start": "react-ats-scripts start",
@@ -38,6 +39,7 @@
     "@types/enzyme-adapter-react-16": "^1.0.1",
     "@types/jest": "^21.1.7",
     "@types/material-ui": "^0.18.4",
+    "@types/nock": "^8.2.1",
     "@types/node": "^8.0.53",
     "@types/react": "^16.0.25",
     "@types/react-dom": "^16.0.3",
@@ -51,6 +53,7 @@
     "enzyme": "^3.2.0",
     "enzyme-adapter-react-16": "^1.1.0",
     "jest-enzyme": "^4.0.1",
+    "nock": "^9.1.4",
     "react-test-renderer": "^16.1.1"
   }
 }
